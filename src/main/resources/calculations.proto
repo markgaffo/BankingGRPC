@@ -1,0 +1,22 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "ds.examples.calculations";
+option java_outer_classname = "BankingServiceImpl";
+
+package calculations;
+
+service BankService {
+	//addMoneyRequest from client to Server
+	//balanceResponse from server to client
+	rpc addMoney(addMoneyRequest) returns (stream balanceResponse) {}
+	
+}
+
+message addMoneyRequest{
+	int32 addMoney = 1;
+}
+
+message balanceResponse{
+	int32 userBalance = 1;
+}
