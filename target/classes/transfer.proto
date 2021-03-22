@@ -1,0 +1,32 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "ds.examples.transfers";
+option java_outer_classname = "TransferServiceImpl";
+
+package transfers;
+
+service TransferService {
+
+	rpc depositFunds(stream DepositRequest) returns (DepositResponse) {}
+	
+	rpc deductFunds(stream DeductRequest) returns (stream DeductResponse) {}
+
+}
+	
+message DepositRequest{
+	int32 depositAmount = 1;
+}
+
+message DepositResponse {
+	int32 depositTotal = 1;
+}
+
+message DeductRequest {
+	int32 deductAmount = 1;
+}
+
+message DeductResponse{ 
+	int32 deductTotal = 1;
+}
+
