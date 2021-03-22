@@ -1,0 +1,32 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "ds.examples.views";
+option java_outer_classname = "ViewServiceImpl";
+
+package views;
+
+service ViewService {
+
+	rpc accountName(AccountNameRequest) returns (AccountNameResponse) {}
+	
+	rpc accountContacts(ContactsRequest) returns (stream ContactsResponse) {}
+	
+}
+	
+message AccountNameRequest{
+	int32 accId = 1;
+}
+
+message AccountNameResponse{
+	string accName = 1;
+}
+
+message ContactsRequest{
+	int32 contactId = 1;
+}
+
+message ContactsResponse{ // client -> id 1 ->  server -> Mark 1, Jon 2, Paddy 3,
+	string accContacts = 1;
+	int32 contactNum = 2;
+}
