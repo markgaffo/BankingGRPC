@@ -1,0 +1,33 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "ds.examples.history";
+option java_outer_classname = "TransferServiceImpl";
+
+package history;
+
+service HistoryService {
+
+	rpc displayTransaction(DisplayRequest) returns (DisplayResponse) {}
+	
+	rpc printRecentTransactions(PrintRequest) returns (stream PrintResponse) {}
+
+}
+	
+message DisplayRequest{ //user -> 1 server -> transnumber: 1, amount: 240£
+	int32 transactionId = 1;
+}
+
+message DisplayResponse {
+	int32 transactionId = 1;
+	float transactionAmount = 2;
+}
+
+message PrintRequest { //user -> 4(last 4 to be printed) server -> value: 230£, value:219£, value:499£, value:16£
+	int32 numberToPrint = 1;
+}
+
+message PrintResponse{ 
+	float transactionValue = 1;
+}
+
