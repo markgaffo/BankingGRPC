@@ -1,10 +1,10 @@
 syntax = "proto3";
 
 option java_multiple_files = true;
-option java_package = "ds.examples.transfers";
+option java_package = "ds.examples.transfer";
 option java_outer_classname = "TransferServiceImpl";
 
-package transfers;
+package transfer;
 
 service TransferService {
 
@@ -14,7 +14,7 @@ service TransferService {
 
 }
 	
-message DepositRequest{
+message DepositRequest{//user -> amount: 230£,(clicks add button) amount: 110£ (clicks finish) server -> total deducted: 340£
 	int32 depositAmount = 1;
 }
 
@@ -22,7 +22,7 @@ message DepositResponse {
 	int32 depositTotal = 1;
 }
 
-message DeductRequest {
+message DeductRequest {//user -> amount: 230£ server -> total deduct: 230£, user -> amount: 110£ server -> total deduct: 340£
 	int32 deductAmount = 1;
 }
 
