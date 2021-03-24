@@ -8,14 +8,15 @@ package history;
 
 service HistoryService {
 
-	rpc displayTransaction(DisplayRequest) returns (DisplayResponse) {}
+	rpc displayTransaction(DisplayRequest) returns (stream DisplayResponse) {}
 	
-	rpc addRecentTransactions(stream AddRequest) returns (AddResponse) {}
+	rpc recentTransactions(stream RecentRequest) returns (RecentResponse) {}
 
 }
 	
-message DisplayRequest{ //user -> 1 server -> transnumber: 1, amount: 240£
-	int32 transactionId = 1;
+message DisplayRequest{ //user -> 1 to 10 server -> transnumber: 1, amount: 240£, 2 amount 300
+	int32 transactionIdStart = 1;
+	int32 transactionIdEnd = 2;
 }
 
 message DisplayResponse {
@@ -23,12 +24,11 @@ message DisplayResponse {
 	float transactionAmount = 2;
 }
 
-message AddRequest { //user -> 1,3,4,6 server -> value: 230£
+message RecentRequest { //user -> 1,3,4,6 server -> total value: 230£ // Random num to gen
 	int32 numberId = 1;
 }
 
-message AddResponse{ 
+message RecentResponse{ 
 	float transactionValue = 1;
-	
 }
 

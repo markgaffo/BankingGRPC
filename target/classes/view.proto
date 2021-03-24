@@ -10,7 +10,7 @@ service ViewService {
 
 	rpc accountName(AccountNameRequest) returns (AccountNameResponse) {}
 	
-	rpc addContacts(ContactsRequest) returns (stream ContactsResponse) {}
+	rpc viewContacts(ContactsRequest) returns (stream ContactsResponse) {}
 	
 }
 	
@@ -23,11 +23,10 @@ message AccountNameResponse{
 }
 
 message ContactsRequest{
-	string name = 1;
-	int32 age = 2;
+	int32 contactGroup = 1;
 }
 
-message ContactsResponse{//client -> Mark gaffney 32 ->  server -> Mark gaffney 32 id 1, client -> Jon B 32, server -> Jon B 32 id 2,
-	string contactDetails= 1;
+message ContactsResponse{//client -> 3 ->  server -> Contact name: Mark gaffney id: 32, -> so on Jon B 32, Jon B 32 id 2,
+	string contactDetails = 1;
 	int32 contactId = 2;
 }
