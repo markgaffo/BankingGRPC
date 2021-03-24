@@ -8,13 +8,13 @@ package transfer;
 
 service TransferService {
 
-	rpc depositFunds(stream DepositRequest) returns (DepositResponse) {}
+	rpc depositFunds(DepositRequest) returns (stream DepositResponse) {}
 	
 	rpc deductFunds(stream DeductRequest) returns (stream DeductResponse) {}
 
 }
 	
-message DepositRequest{//user -> amount: 230£,(clicks add button) amount: 110£ (clicks finish) server -> total deducted: 340£
+message DepositRequest{//user -> amount: 230£ server -> 340£
 	int32 depositAmount = 1;
 }
 
