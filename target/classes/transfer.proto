@@ -15,18 +15,18 @@ service TransferService {
 }
 	
 message DepositRequest{//user -> 230, 320, 500 server -> 1050£ then add
-	int32 depositAmount = 1;
+	float depositAmount = 1;
 }
 
 message DepositResponse {
-	int32 depositTotal = 1;
+	float depositTotal = 1;
 }
 
 message DeductRequest {//user -> amount: 230£ server -> total deduct: 230£, user -> amount: 110£ server -> total deduct: 340£
-	int32 deductAmount = 1;
+	float deductAmount = 1;
 }
 
 message DeductResponse{ 
-	int32 deductTotal = 1;
+	float deductTotal = 1;
 }
 
