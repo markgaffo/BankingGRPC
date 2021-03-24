@@ -10,7 +10,7 @@ service HistoryService {
 
 	rpc displayTransaction(DisplayRequest) returns (DisplayResponse) {}
 	
-	rpc printRecentTransactions(PrintRequest) returns (stream PrintResponse) {}
+	rpc addRecentTransactions(stream AddRequest) returns (AddResponse) {}
 
 }
 	
@@ -23,11 +23,12 @@ message DisplayResponse {
 	float transactionAmount = 2;
 }
 
-message PrintRequest { //user -> 4(last 4 to be printed) server -> value: 230£, value:219£, value:499£, value:16£
-	int32 numberToPrint = 1;
+message AddRequest { //user -> 1,3,4,6 server -> value: 230£
+	int32 numberId = 1;
 }
 
-message PrintResponse{ 
+message AddResponse{ 
 	float transactionValue = 1;
+	
 }
 
