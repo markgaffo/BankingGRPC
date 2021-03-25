@@ -8,7 +8,7 @@ public interface RecentResponseOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <code>float transactionValue = 1;</code>
+   * <code>int32 transactionValue = 1;</code>
    */
-  float getTransactionValue();
+  int getTransactionValue();
 }
