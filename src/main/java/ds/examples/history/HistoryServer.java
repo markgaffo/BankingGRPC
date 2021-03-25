@@ -13,7 +13,6 @@ import javax.jmdns.JmDNS;
 import javax.jmdns.ServiceInfo;
 
 import ds.examples.history.HistoryServiceGrpc.HistoryServiceImplBase;
-import ds.examples.view.AccountNameResponse;
 import ds.examples.history.DisplayRequest;
 import ds.examples.history.DisplayResponse;
 import ds.examples.history.RecentRequest;
