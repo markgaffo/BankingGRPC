@@ -1,0 +1,20 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "io.bankingPythonGRPC.pyservice";
+option java_outer_classname = "HelloWorldProto";
+option objc_class_prefix = "HLW";
+
+package pyservice;
+
+service Signup {
+  rpc AccountName (UserRequest) returns (UserReply) {}
+}
+
+message UserRequest {
+  string username = 1;
+}
+
+message UserReply {
+  string message = 1;
+}
