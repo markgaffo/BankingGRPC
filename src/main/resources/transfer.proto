@@ -11,6 +11,8 @@ service TransferService {
 	rpc depositFunds(stream DepositRequest) returns (DepositResponse) {}
 	
 	rpc deductFunds(stream DeductRequest) returns (stream DeductResponse) {}
+	
+	rpc savingsFund(SavingRequest) returns (SavingResponse) {}
 
 }
 	
@@ -30,3 +32,11 @@ message DeductResponse{
 	float deductTotal = 1;
 }
 
+message SavingRequest{//user -> true server -> total: 2400$
+	bool viewSaving = 1;
+}
+
+message SavingResponse{ 
+	float savingTotal = 1;
+	string message =2;
+}

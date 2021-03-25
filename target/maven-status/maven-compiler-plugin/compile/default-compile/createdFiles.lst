@@ -16,6 +16,7 @@ ds\examples\view\ViewServer.class
 ds\examples\transfer\TransferServiceGrpc$1.class
 ds\examples\calculations\BankServiceGrpc$BankServiceFileDescriptorSupplier.class
 ds\examples\transfer\TransferServiceGrpc$TransferServiceStub.class
+ds\examples\transfer\SavingResponse.class
 ds\examples\history\HistoryServiceGrpc$HistoryServiceFutureStub.class
 ds\examples\view\ViewServiceGrpc.class
 ds\examples\view\AccountNameRequest$1.class
@@ -47,6 +48,7 @@ ds\examples\view\ViewServiceGrpc$ViewServiceStub.class
 ds\examples\transfer\DepositRequest$1.class
 ds\examples\calculations\addMoneyRequestOrBuilder.class
 ds\examples\history\DisplayResponse$Builder.class
+ds\examples\transfer\SavingRequest$1.class
 ds\examples\calculations\BankServiceGrpc$MethodHandlers.class
 ds\examples\view\AccountNameResponse$Builder.class
 ds\examples\transfer\DeductResponseOrBuilder.class
@@ -62,6 +64,7 @@ ds\examples\history\DisplayResponse$1.class
 ds\examples\history\HistoryServiceGrpc$HistoryServiceStub.class
 ds\examples\transfer\DepositResponseOrBuilder.class
 ds\examples\view\ViewServiceImpl$1.class
+ds\examples\transfer\SavingRequestOrBuilder.class
 ds\examples\transfer\DeductResponse$Builder.class
 ds\examples\history\RecentResponse$Builder.class
 ds\examples\transfer\DepositResponse$1.class
@@ -75,14 +78,17 @@ ds\examples\history\DisplayResponseOrBuilder.class
 ds\examples\history\HistoryServiceGrpc$HistoryServiceFileDescriptorSupplier.class
 ds\examples\history\DisplayResponse.class
 ds\examples\view\ViewServiceGrpc$ViewServiceBaseDescriptorSupplier.class
+ds\examples\transfer\SavingResponse$1.class
 ds\examples\history\TransferServiceImpl$1.class
 ds\examples\transfer\TransferServiceGrpc$TransferServiceMethodDescriptorSupplier.class
 ds\examples\view\ViewServiceImpl.class
+ds\examples\transfer\SavingResponse$Builder.class
 ds\examples\calculations\balanceResponse.class
 ds\examples\history\HistoryServiceGrpc$HistoryServiceBlockingStub.class
 ds\examples\transfer\DeductRequest$Builder.class
 ds\examples\transfer\TransferServiceGrpc$TransferServiceImplBase.class
 ds\examples\calculations\balanceResponseOrBuilder.class
+ds\examples\transfer\TransferServer$1.class
 ds\examples\transfer\DepositResponse.class
 ds\examples\history\RecentResponse$1.class
 ds\examples\transfer\DepositResponse$Builder.class
@@ -95,6 +101,7 @@ ds\examples\view\ContactsRequest.class
 ds\examples\calculations\addMoneyRequest$Builder.class
 ds\examples\history\TransferServiceImpl.class
 ds\examples\view\AccountNameResponseOrBuilder.class
+ds\examples\transfer\SavingRequest$Builder.class
 ds\examples\calculations\addMoneyRequest.class
 ds\examples\transfer\DeductResponse.class
 ds\examples\history\DisplayRequest$Builder.class
@@ -102,7 +109,9 @@ ds\examples\view\AccountNameResponse$1.class
 ds\examples\transfer\TransferServiceGrpc$TransferServiceFileDescriptorSupplier.class
 ds\examples\view\ViewServiceGrpc$ViewServiceMethodDescriptorSupplier.class
 ds\examples\history\DisplayRequest$1.class
+ds\examples\transfer\SavingResponseOrBuilder.class
 ds\examples\transfer\DepositRequest$Builder.class
 ds\examples\view\ContactsResponse$Builder.class
+ds\examples\transfer\SavingRequest.class
 ds\examples\view\ViewServiceGrpc$ViewServiceBlockingStub.class
 ds\examples\transfer\TransferServiceGrpc$MethodHandlers.class

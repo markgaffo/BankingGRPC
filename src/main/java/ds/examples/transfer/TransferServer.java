@@ -5,6 +5,7 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.InetAddress;
+import java.util.ArrayList;
 import java.util.Properties;
 
 import javax.jmdns.JmDNS;
@@ -20,8 +21,11 @@ import io.grpc.stub.StreamObserver;
 
 public class TransferServer extends TransferServiceImplBase {
 
+	public int user_balance = 0;
+	
 	public static void main(String[] args) {
 
+		
 		TransferServer transferServer = new TransferServer();
 		Properties prop = transferServer.getProperties();
 		
@@ -98,15 +102,19 @@ public class TransferServer extends TransferServiceImplBase {
 	}
 	
 	public StreamObserver<DepositRequest> depositFunds(
-			StreamObserver<DepositResponse> responseObserver){
-		
+			StreamObserver<DepositResponse> responseObserver) {
+
+
 		return new StreamObserver<DepositRequest>() {
+
+			ArrayList<Integer> deposits = new ArrayList();
 			
-			int total = 0;
 			@Override
 			public void onNext(DepositRequest request) {
 				
+				System.out.println("receiving amount " + request.getDepositAmount());
 				
+				deposits.add((int) request.getDepositAmount());
 				
 			}
 
@@ -117,7 +125,13 @@ public class TransferServer extends TransferServiceImplBase {
 			@Override
 			public void onCompleted() {
 				
-				DepositResponse reply = DepositResponse.newBuilder().setDepositTotal(total).build();
+				System.out.printf("All deposits recieved \n");
+				
+				for(float v:  deposits) {
+					user_balance = (int) (user_balance + v);
+				}
+				
+				DepositResponse reply = DepositResponse.newBuilder().setDepositTotal(user_balance).build();
 				
 				responseObserver.onNext(reply);
 
@@ -126,5 +140,67 @@ public class TransferServer extends TransferServiceImplBase {
 			
 		};
 	}
+	
+	public StreamObserver<DeductRequest> deductFunds(
+			StreamObserver<DeductResponse> responseObserver) {
 
+		return new StreamObserver<DeductRequest>() {
+
+			ArrayList<Integer> deducts = new ArrayList();
+			
+			@Override
+			public void onNext(DeductRequest request) {
+				
+				System.out.println("receiving deduction " + request.getDeductAmount());
+				
+				deducts.add((int) request.getDeductAmount());
+				
+				for(float v:  deducts) {
+					user_balance = (int) (user_balance - v);
+				}
+				deducts.clear();
+				
+				DeductResponse reply = DeductResponse.newBuilder().setDeductTotal(user_balance).build();
+				
+				responseObserver.onNext(reply);
+				
+			}
+
+			@Override
+			public void onError(Throwable t) {				
+			}
+
+			@Override
+			public void onCompleted() {
+				
+				System.out.println("Deductions completed!");
+				responseObserver.onCompleted();
+			}
+			
+		};
+	}
+	
+	public void savingsFund(SavingRequest request,
+			StreamObserver<SavingResponse> responseObserver) {
+		if(request.getViewSaving() == true) {
+			
+			String message = " is in the savings account.";
+			
+			SavingResponse reply = SavingResponse.newBuilder().setSavingTotal(user_balance).setMessage(message).build();
+			
+			responseObserver.onNext(reply);
+			
+			responseObserver.onCompleted();
+		}
+		else {
+			String message = " View again any time you wish.";
+			int na = 0;
+			SavingResponse reply = SavingResponse.newBuilder().setSavingTotal(na).setMessage(message).build();
+			
+			responseObserver.onNext(reply);
+			
+			responseObserver.onCompleted();
+		}
+	}
+	
 }
