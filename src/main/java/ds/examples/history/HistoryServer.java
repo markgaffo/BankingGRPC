@@ -5,15 +5,24 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.InetAddress;
+import java.util.ArrayList;
 import java.util.Properties;
+import java.util.Random;
 
 import javax.jmdns.JmDNS;
 import javax.jmdns.ServiceInfo;
 
 import ds.examples.history.HistoryServiceGrpc.HistoryServiceImplBase;
+import ds.examples.view.AccountNameResponse;
+import ds.examples.history.DisplayRequest;
+import ds.examples.history.DisplayResponse;
+import ds.examples.history.RecentRequest;
+import ds.examples.history.RecentResponse;
 import ds.examples.history.HistoryServer;
+
 import io.grpc.Server;
 import io.grpc.ServerBuilder;
+import io.grpc.stub.StreamObserver;
 
 public class HistoryServer extends HistoryServiceImplBase {
 
@@ -93,4 +102,102 @@ public class HistoryServer extends HistoryServiceImplBase {
 			}
 
 	}
+	
+		public void displayTransaction(DisplayRequest request, 
+				StreamObserver<DisplayResponse> responseObserver) {
+			
+			System.out.printf("getting groups: %d \n", request.getTransactionIdStart());
+			Random rand = new Random();
+			int numId = 0;
+			for(int i=0; i<request.getTransactionIdEnd(); i++) {
+				
+				int spend_history = rand.nextInt(1000 - 1);
+				numId = numId +1;
+				
+				DisplayResponse reply = DisplayResponse.newBuilder().setTransactionId(numId).setTransactionAmount(spend_history).build();
+
+				responseObserver.onNext(reply);
+
+				try {
+					Thread.sleep(1000);
+				} catch (InterruptedException e) {
+					e.printStackTrace();
+				}
+			}
+
+			responseObserver.onCompleted();
+		}
+	
+		public StreamObserver<RecentRequest> recentTransactions(
+				StreamObserver<RecentResponse> responseObserver) {
+
+
+			return new StreamObserver<RecentRequest>() {
+				
+				int amount = 0;
+				
+				
+				@Override
+				public void onNext(RecentRequest request) {
+					
+					
+					if(request.getNumberId() == 1) {
+						amount = amount + 140;
+					}
+					else if(request.getNumberId() == 2) {
+						amount = amount +299;
+					}
+					else if(request.getNumberId() == 3) {
+						amount = amount +25;
+					}
+					else if(request.getNumberId() == 4) {
+						amount = amount +40;
+					}
+					else if(request.getNumberId() == 5) {
+						amount = amount +230;
+					}
+					else if(request.getNumberId() == 6) {
+						amount = amount +125;
+					}
+					else if(request.getNumberId() == 7) {
+						amount = amount +110;
+					}
+					else if(request.getNumberId() == 8) {
+						amount = amount +320;
+					}
+					else if(request.getNumberId() == 9) {
+						amount = amount +600;
+					}
+					else if(request.getNumberId() == 10) {
+						amount = amount +700;
+					}
+					else {
+						amount = amount +0;
+					}
+					
+					System.out.println("receiving Id: "+ request.getNumberId());
+				
+				}
+				
+
+				@Override
+				public void onError(Throwable t) {
+				}
+
+				@Override
+				public void onCompleted() {
+					System.out.printf("receiving averageValues method complete \n" );
+					
+					RecentResponse reply = RecentResponse.newBuilder().setTransactionValue(amount).build();
+
+					responseObserver.onNext(reply);
+					
+					responseObserver.onCompleted();		
+				}
+
+
+			};
+
+		}
+		
 }

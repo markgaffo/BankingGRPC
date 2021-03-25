@@ -49,7 +49,7 @@ public final class TransferServiceImpl {
       "ransactionId\030\001 \001(\005\022\031\n\021transactionAmount\030" +
       "\002 \001(\002\"!\n\rRecentRequest\022\020\n\010numberId\030\001 \001(\005" +
       "\"*\n\016RecentResponse\022\030\n\020transactionValue\030\001" +
-      " \001(\0022\250\001\n\016HistoryService\022K\n\022displayTransa" +
+      " \001(\0052\250\001\n\016HistoryService\022K\n\022displayTransa" +
       "ction\022\027.history.DisplayRequest\032\030.history" +
       ".DisplayResponse\"\0000\001\022I\n\022recentTransactio" +
       "ns\022\026.history.RecentRequest\032\027.history.Rec" +

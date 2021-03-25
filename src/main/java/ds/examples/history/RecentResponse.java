@@ -16,7 +16,7 @@ private static final long serialVersionUID = 0L;
     super(builder);
   }
   private RecentResponse() {
-    transactionValue_ = 0F;
+    transactionValue_ = 0;
   }
 
   @java.lang.Override
@@ -43,9 +43,9 @@ private static final long serialVersionUID = 0L;
           case 0:
             done = true;
             break;
-          case 13: {
+          case 8: {
 
-            transactionValue_ = input.readFloat();
+            transactionValue_ = input.readInt32();
             break;
           }
           default: {
@@ -81,11 +81,11 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int TRANSACTIONVALUE_FIELD_NUMBER = 1;
-  private float transactionValue_;
+  private int transactionValue_;
   /**
-   * <code>float transactionValue = 1;</code>
+   * <code>int32 transactionValue = 1;</code>
    */
-  public float getTransactionValue() {
+  public int getTransactionValue() {
     return transactionValue_;
   }
 
@@ -103,8 +103,8 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
-    if (transactionValue_ != 0F) {
-      output.writeFloat(1, transactionValue_);
+    if (transactionValue_ != 0) {
+      output.writeInt32(1, transactionValue_);
     }
     unknownFields.writeTo(output);
   }
@@ -115,9 +115,9 @@ private static final long serialVersionUID = 0L;
     if (size != -1) return size;
 
     size = 0;
-    if (transactionValue_ != 0F) {
+    if (transactionValue_ != 0) {
       size += com.google.protobuf.CodedOutputStream
-        .computeFloatSize(1, transactionValue_);
+        .computeInt32Size(1, transactionValue_);
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -135,10 +135,8 @@ private static final long serialVersionUID = 0L;
     ds.examples.history.RecentResponse other = (ds.examples.history.RecentResponse) obj;
 
     boolean result = true;
-    result = result && (
-        java.lang.Float.floatToIntBits(getTransactionValue())
-        == java.lang.Float.floatToIntBits(
-            other.getTransactionValue()));
+    result = result && (getTransactionValue()
+        == other.getTransactionValue());
     result = result && unknownFields.equals(other.unknownFields);
     return result;
   }
@@ -151,8 +149,7 @@ private static final long serialVersionUID = 0L;
     int hash = 41;
     hash = (19 * hash) + getDescriptor().hashCode();
     hash = (37 * hash) + TRANSACTIONVALUE_FIELD_NUMBER;
-    hash = (53 * hash) + java.lang.Float.floatToIntBits(
-        getTransactionValue());
+    hash = (53 * hash) + getTransactionValue();
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -286,7 +283,7 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      transactionValue_ = 0F;
+      transactionValue_ = 0;
 
       return this;
     }
@@ -363,7 +360,7 @@ private static final long serialVersionUID = 0L;
 
     public Builder mergeFrom(ds.examples.history.RecentResponse other) {
       if (other == ds.examples.history.RecentResponse.getDefaultInstance()) return this;
-      if (other.getTransactionValue() != 0F) {
+      if (other.getTransactionValue() != 0) {
         setTransactionValue(other.getTransactionValue());
       }
       this.mergeUnknownFields(other.unknownFields);
@@ -395,28 +392,28 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private float transactionValue_ ;
+    private int transactionValue_ ;
     /**
-     * <code>float transactionValue = 1;</code>
+     * <code>int32 transactionValue = 1;</code>
      */
-    public float getTransactionValue() {
+    public int getTransactionValue() {
       return transactionValue_;
     }
     /**
-     * <code>float transactionValue = 1;</code>
+     * <code>int32 transactionValue = 1;</code>
      */
-    public Builder setTransactionValue(float value) {
+    public Builder setTransactionValue(int value) {
       
       transactionValue_ = value;
       onChanged();
       return this;
     }
     /**
-     * <code>float transactionValue = 1;</code>
+     * <code>int32 transactionValue = 1;</code>
      */
     public Builder clearTransactionValue() {
       
-      transactionValue_ = 0F;
+      transactionValue_ = 0;
       onChanged();
       return this;
     }

@@ -78,7 +78,7 @@ public class TransferServer extends TransferServiceImplBase {
 	            String service_type = prop.getProperty("service_type") ;//"_http._tcp.local."
 	            String service_name = prop.getProperty("service_name")  ;// "transfer_service"
 	            int service_port = Integer.valueOf( prop.getProperty("service_port"));// #.50053;
-	            String service_description_properties = prop.getProperty("service_description")  ;
+	            String service_description_properties = prop.getProperty("service_description");
 	            
 	            // Register a service
 	            ServiceInfo serviceInfo = ServiceInfo.create(service_type, service_name, service_port, service_description_properties);
