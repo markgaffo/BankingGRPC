@@ -34,6 +34,16 @@ public final class TransferServiceImpl {
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_transfer_DeductResponse_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_transfer_SavingRequest_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_transfer_SavingRequest_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_transfer_SavingResponse_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_transfer_SavingResponse_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -47,13 +57,17 @@ public final class TransferServiceImpl {
       "uest\022\025\n\rdepositAmount\030\001 \001(\002\"\'\n\017DepositRe" +
       "sponse\022\024\n\014depositTotal\030\001 \001(\002\"%\n\rDeductRe" +
       "quest\022\024\n\014deductAmount\030\001 \001(\002\"%\n\016DeductRes" +
-      "ponse\022\023\n\013deductTotal\030\001 \001(\0022\242\001\n\017TransferS" +
-      "ervice\022G\n\014depositFunds\022\030.transfer.Deposi" +
-      "tRequest\032\031.transfer.DepositResponse\"\000(\001\022" +
-      "F\n\013deductFunds\022\027.transfer.DeductRequest\032" +
-      "\030.transfer.DeductResponse\"\000(\0010\001B-\n\024ds.ex" +
-      "amples.transferB\023TransferServiceImplP\001b\006" +
-      "proto3"
+      "ponse\022\023\n\013deductTotal\030\001 \001(\002\"#\n\rSavingRequ" +
+      "est\022\022\n\nviewSaving\030\001 \001(\010\"6\n\016SavingRespons" +
+      "e\022\023\n\013savingTotal\030\001 \001(\002\022\017\n\007message\030\002 \001(\t2" +
+      "\346\001\n\017TransferService\022G\n\014depositFunds\022\030.tr" +
+      "ansfer.DepositRequest\032\031.transfer.Deposit" +
+      "Response\"\000(\001\022F\n\013deductFunds\022\027.transfer.D" +
+      "eductRequest\032\030.transfer.DeductResponse\"\000" +
+      "(\0010\001\022B\n\013savingsFund\022\027.transfer.SavingReq" +
+      "uest\032\030.transfer.SavingResponse\"\000B-\n\024ds.e" +
+      "xamples.transferB\023TransferServiceImplP\001b" +
+      "\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -91,6 +105,18 @@ public final class TransferServiceImpl {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_transfer_DeductResponse_descriptor,
         new java.lang.String[] { "DeductTotal", });
+    internal_static_transfer_SavingRequest_descriptor =
+      getDescriptor().getMessageTypes().get(4);
+    internal_static_transfer_SavingRequest_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_transfer_SavingRequest_descriptor,
+        new java.lang.String[] { "ViewSaving", });
+    internal_static_transfer_SavingResponse_descriptor =
+      getDescriptor().getMessageTypes().get(5);
+    internal_static_transfer_SavingResponse_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_transfer_SavingResponse_descriptor,
+        new java.lang.String[] { "SavingTotal", "Message", });
   }
 
   // @@protoc_insertion_point(outer_class_scope)

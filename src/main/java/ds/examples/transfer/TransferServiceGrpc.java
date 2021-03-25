@@ -91,6 +91,38 @@ public final class TransferServiceGrpc {
      return getDeductFundsMethod;
   }
 
+  private static volatile io.grpc.MethodDescriptor<ds.examples.transfer.SavingRequest,
+      ds.examples.transfer.SavingResponse> getSavingsFundMethod;
+
+  @io.grpc.stub.annotations.RpcMethod(
+      fullMethodName = SERVICE_NAME + '/' + "savingsFund",
+      requestType = ds.examples.transfer.SavingRequest.class,
+      responseType = ds.examples.transfer.SavingResponse.class,
+      methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
+  public static io.grpc.MethodDescriptor<ds.examples.transfer.SavingRequest,
+      ds.examples.transfer.SavingResponse> getSavingsFundMethod() {
+    io.grpc.MethodDescriptor<ds.examples.transfer.SavingRequest, ds.examples.transfer.SavingResponse> getSavingsFundMethod;
+    if ((getSavingsFundMethod = TransferServiceGrpc.getSavingsFundMethod) == null) {
+      synchronized (TransferServiceGrpc.class) {
+        if ((getSavingsFundMethod = TransferServiceGrpc.getSavingsFundMethod) == null) {
+          TransferServiceGrpc.getSavingsFundMethod = getSavingsFundMethod = 
+              io.grpc.MethodDescriptor.<ds.examples.transfer.SavingRequest, ds.examples.transfer.SavingResponse>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+              .setFullMethodName(generateFullMethodName(
+                  "transfer.TransferService", "savingsFund"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  ds.examples.transfer.SavingRequest.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  ds.examples.transfer.SavingResponse.getDefaultInstance()))
+                  .setSchemaDescriptor(new TransferServiceMethodDescriptorSupplier("savingsFund"))
+                  .build();
+          }
+        }
+     }
+     return getSavingsFundMethod;
+  }
+
   /**
    * Creates a new async stub that supports all call types for the service
    */
@@ -132,6 +164,13 @@ public final class TransferServiceGrpc {
       return asyncUnimplementedStreamingCall(getDeductFundsMethod(), responseObserver);
     }
 
+    /**
+     */
+    public void savingsFund(ds.examples.transfer.SavingRequest request,
+        io.grpc.stub.StreamObserver<ds.examples.transfer.SavingResponse> responseObserver) {
+      asyncUnimplementedUnaryCall(getSavingsFundMethod(), responseObserver);
+    }
+
     @java.lang.Override public final io.grpc.ServerServiceDefinition bindService() {
       return io.grpc.ServerServiceDefinition.builder(getServiceDescriptor())
           .addMethod(
@@ -148,6 +187,13 @@ public final class TransferServiceGrpc {
                 ds.examples.transfer.DeductRequest,
                 ds.examples.transfer.DeductResponse>(
                   this, METHODID_DEDUCT_FUNDS)))
+          .addMethod(
+            getSavingsFundMethod(),
+            asyncUnaryCall(
+              new MethodHandlers<
+                ds.examples.transfer.SavingRequest,
+                ds.examples.transfer.SavingResponse>(
+                  this, METHODID_SAVINGS_FUND)))
           .build();
     }
   }
@@ -185,6 +231,14 @@ public final class TransferServiceGrpc {
       return asyncBidiStreamingCall(
           getChannel().newCall(getDeductFundsMethod(), getCallOptions()), responseObserver);
     }
+
+    /**
+     */
+    public void savingsFund(ds.examples.transfer.SavingRequest request,
+        io.grpc.stub.StreamObserver<ds.examples.transfer.SavingResponse> responseObserver) {
+      asyncUnaryCall(
+          getChannel().newCall(getSavingsFundMethod(), getCallOptions()), request, responseObserver);
+    }
   }
 
   /**
@@ -203,6 +257,13 @@ public final class TransferServiceGrpc {
     protected TransferServiceBlockingStub build(io.grpc.Channel channel,
         io.grpc.CallOptions callOptions) {
       return new TransferServiceBlockingStub(channel, callOptions);
+    }
+
+    /**
+     */
+    public ds.examples.transfer.SavingResponse savingsFund(ds.examples.transfer.SavingRequest request) {
+      return blockingUnaryCall(
+          getChannel(), getSavingsFundMethod(), getCallOptions(), request);
     }
   }
 
@@ -223,10 +284,19 @@ public final class TransferServiceGrpc {
         io.grpc.CallOptions callOptions) {
       return new TransferServiceFutureStub(channel, callOptions);
     }
+
+    /**
+     */
+    public com.google.common.util.concurrent.ListenableFuture<ds.examples.transfer.SavingResponse> savingsFund(
+        ds.examples.transfer.SavingRequest request) {
+      return futureUnaryCall(
+          getChannel().newCall(getSavingsFundMethod(), getCallOptions()), request);
+    }
   }
 
-  private static final int METHODID_DEPOSIT_FUNDS = 0;
-  private static final int METHODID_DEDUCT_FUNDS = 1;
+  private static final int METHODID_SAVINGS_FUND = 0;
+  private static final int METHODID_DEPOSIT_FUNDS = 1;
+  private static final int METHODID_DEDUCT_FUNDS = 2;
 
   private static final class MethodHandlers<Req, Resp> implements
       io.grpc.stub.ServerCalls.UnaryMethod<Req, Resp>,
@@ -245,6 +315,10 @@ public final class TransferServiceGrpc {
     @java.lang.SuppressWarnings("unchecked")
     public void invoke(Req request, io.grpc.stub.StreamObserver<Resp> responseObserver) {
       switch (methodId) {
+        case METHODID_SAVINGS_FUND:
+          serviceImpl.savingsFund((ds.examples.transfer.SavingRequest) request,
+              (io.grpc.stub.StreamObserver<ds.examples.transfer.SavingResponse>) responseObserver);
+          break;
         default:
           throw new AssertionError();
       }
@@ -314,6 +388,7 @@ public final class TransferServiceGrpc {
               .setSchemaDescriptor(new TransferServiceFileDescriptorSupplier())
               .addMethod(getDepositFundsMethod())
               .addMethod(getDeductFundsMethod())
+              .addMethod(getSavingsFundMethod())
               .build();
         }
       }
