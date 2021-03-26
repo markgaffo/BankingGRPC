@@ -185,7 +185,7 @@ public class ViewServer extends ViewServiceImplBase{
 				
 				name = listGroup2.get(i);
 				
-				ContactsResponse reply = ContactsResponse.newBuilder().setContactDetails(name).setContactId(IdCount).build();
+				ContactsResponse reply = ContactsResponse.newBuilder().setContactDetails(name).setContactId(IdCount2).build();
 				
 				responseObserver.onNext(reply);
 			}
@@ -196,7 +196,7 @@ public class ViewServer extends ViewServiceImplBase{
 				
 				name = listGroup3.get(i);
 				
-				ContactsResponse reply = ContactsResponse.newBuilder().setContactDetails(name).setContactId(IdCount).build();
+				ContactsResponse reply = ContactsResponse.newBuilder().setContactDetails(name).setContactId(IdCount3).build();
 				
 				responseObserver.onNext(reply);
 			}
