@@ -136,12 +136,12 @@ public class TransferServiceGUI {
 		frame.getContentPane().add(ServerResponseText);
 		
 		deposit = new JTextField();
-		deposit.setBounds(220, 12, 86, 20);
+		deposit.setBounds(274, 12, 86, 20);
 		frame.getContentPane().add(deposit);
 		deposit.setColumns(10);
 		
 		deduct = new JTextField();
-		deduct.setBounds(220, 69, 86, 20);
+		deduct.setBounds(274, 69, 86, 20);
 		frame.getContentPane().add(deduct);
 		deduct.setColumns(10);
 		
@@ -176,7 +176,7 @@ public class TransferServiceGUI {
 					}
 					moneyStream.clear();
 					requestObserver.onCompleted();
-					Thread.sleep(10000);
+					Thread.sleep(1000);
 					
 				}catch (RuntimeException e1) {
 					e1.printStackTrace();
@@ -187,7 +187,7 @@ public class TransferServiceGUI {
 
 			}
 		});
-		btnDepositCom.setBounds(434, 11, 89, 23);
+		btnDepositCom.setBounds(488, 11, 89, 23);
 		frame.getContentPane().add(btnDepositCom);
 		
 		JButton btnDeposit = new JButton("Add");
@@ -202,7 +202,7 @@ public class TransferServiceGUI {
 				ServerResponseText.append("The Adding: "+ money +" to balance"+"\n");
 			}
 		});
-		btnDeposit.setBounds(316, 11, 89, 23);
+		btnDeposit.setBounds(370, 11, 89, 23);
 		frame.getContentPane().add(btnDeposit);
 		
 		JButton btnDeductCom = new JButton("Finished");
@@ -248,7 +248,7 @@ public class TransferServiceGUI {
 				
 			}
 		});
-		btnDeductCom.setBounds(434, 68, 89, 23);
+		btnDeductCom.setBounds(488, 68, 89, 23);
 		frame.getContentPane().add(btnDeductCom);
 		
 
@@ -263,7 +263,7 @@ public class TransferServiceGUI {
 				ServerResponseText.append("Removing: "+ money +" from the balance"+"\n");
 			}
 		});
-		btnDedcut.setBounds(316, 68, 89, 23);
+		btnDedcut.setBounds(370, 68, 89, 23);
 		frame.getContentPane().add(btnDedcut);
 		
 
@@ -280,15 +280,15 @@ public class TransferServiceGUI {
 				System.out.println("Sever response: "+response.getSavingTotal());
 			}
 		});
-		btnSavings.setBounds(96, 125, 109, 23);
+		btnSavings.setBounds(96, 125, 152, 23);
 		frame.getContentPane().add(btnSavings);
 
 		JLabel lblEnterAmountTo = new JLabel("Enter amount to Add to account:");
-		lblEnterAmountTo.setBounds(42, 15, 163, 14);
+		lblEnterAmountTo.setBounds(94, 15, 210, 14);
 		frame.getContentPane().add(lblEnterAmountTo);
 		
 		JLabel lblEnterAmountTo_2 = new JLabel("Enter amount to remove from account:");
-		lblEnterAmountTo_2.setBounds(16, 72, 194, 14);
+		lblEnterAmountTo_2.setBounds(56, 72, 248, 14);
 		frame.getContentPane().add(lblEnterAmountTo_2);
 	}
 
