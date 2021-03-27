@@ -111,6 +111,7 @@ public class ViewServiceGUI {
 		}
 		
 	}
+	
 	private void initialize() {
 		frame = new JFrame();
 		frame.setBounds(100, 100, 650, 400);
