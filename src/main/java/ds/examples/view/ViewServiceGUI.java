@@ -211,5 +211,8 @@ public class ViewServiceGUI {
 		JPanel panel = new JPanel();
 		panel.setBounds(0, 0, 634, 90);
 		frame.getContentPane().add(panel);
+		
+		JLabel lblViewAccountDetails = new JLabel("View Account Details");
+		panel.add(lblViewAccountDetails);
 	}
 }

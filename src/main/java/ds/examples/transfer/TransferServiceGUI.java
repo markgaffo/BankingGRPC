@@ -136,7 +136,7 @@ public class TransferServiceGUI {
 		frame.getContentPane().add(ServerResponseText);
 		
 		deposit = new JTextField();
-		deposit.setBounds(274, 12, 86, 20);
+		deposit.setBounds(274, 36, 86, 20);
 		frame.getContentPane().add(deposit);
 		deposit.setColumns(10);
 		
@@ -187,7 +187,7 @@ public class TransferServiceGUI {
 
 			}
 		});
-		btnDepositCom.setBounds(488, 11, 89, 23);
+		btnDepositCom.setBounds(488, 35, 89, 23);
 		frame.getContentPane().add(btnDepositCom);
 		
 		JButton btnDeposit = new JButton("Add");
@@ -202,7 +202,7 @@ public class TransferServiceGUI {
 				ServerResponseText.append("The Adding: "+ money +" to balance"+"\n");
 			}
 		});
-		btnDeposit.setBounds(370, 11, 89, 23);
+		btnDeposit.setBounds(370, 35, 89, 23);
 		frame.getContentPane().add(btnDeposit);
 		
 		JButton btnDeductCom = new JButton("Finished");
@@ -284,12 +284,16 @@ public class TransferServiceGUI {
 		frame.getContentPane().add(btnSavings);
 
 		JLabel lblEnterAmountTo = new JLabel("Enter amount to Add to account:");
-		lblEnterAmountTo.setBounds(94, 15, 210, 14);
+		lblEnterAmountTo.setBounds(94, 39, 210, 14);
 		frame.getContentPane().add(lblEnterAmountTo);
 		
 		JLabel lblEnterAmountTo_2 = new JLabel("Enter amount to remove from account:");
 		lblEnterAmountTo_2.setBounds(56, 72, 248, 14);
 		frame.getContentPane().add(lblEnterAmountTo_2);
+		
+		JLabel lblNewLabel = new JLabel("Transfer section");
+		lblNewLabel.setBounds(247, 11, 114, 14);
+		frame.getContentPane().add(lblNewLabel);
 	}
 
 }

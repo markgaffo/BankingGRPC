@@ -139,7 +139,7 @@ private void discoverHistoryService(String service_type) {
 		frame.getContentPane().add(btnBack);
 		
 		startId = new JTextField();
-		startId.setBounds(58, 36, 86, 20);
+		startId.setBounds(75, 49, 86, 20);
 		frame.getContentPane().add(startId);
 		startId.setColumns(10);
 		
@@ -148,7 +148,7 @@ private void discoverHistoryService(String service_type) {
 		frame.getContentPane().add(textArea);
 		
 		endId = new JTextField();
-		endId.setBounds(189, 36, 86, 20);
+		endId.setBounds(206, 49, 86, 20);
 		frame.getContentPane().add(endId);
 		endId.setColumns(10);
 		
@@ -194,19 +194,19 @@ private void discoverHistoryService(String service_type) {
 				}
 			}
 		});
-		btnDisplay.setBounds(285, 35, 89, 23);
+		btnDisplay.setBounds(302, 48, 89, 23);
 		frame.getContentPane().add(btnDisplay);
 		
 		JLabel lblNewLabel = new JLabel("Insert a start and end transaction ID");
-		lblNewLabel.setBounds(46, 11, 222, 14);
+		lblNewLabel.setBounds(63, 24, 222, 14);
 		frame.getContentPane().add(lblNewLabel);
 		
 		JLabel lblStartId = new JLabel("Start ID");
-		lblStartId.setBounds(10, 39, 46, 14);
+		lblStartId.setBounds(27, 52, 46, 14);
 		frame.getContentPane().add(lblStartId);
 		
 		JLabel lblNewLabel_1 = new JLabel("End ID");
-		lblNewLabel_1.setBounds(153, 39, 37, 14);
+		lblNewLabel_1.setBounds(170, 52, 37, 14);
 		frame.getContentPane().add(lblNewLabel_1);
 		
 		
@@ -264,7 +264,7 @@ private void discoverHistoryService(String service_type) {
 		btnAdd.setBounds(158, 97, 117, 23);
 		frame.getContentPane().add(btnAdd);
 
-		btnSearch.setBounds(285, 97, 106, 23);
+		btnSearch.setBounds(285, 97, 130, 23);
 		frame.getContentPane().add(btnSearch);
 
 		JLabel lblSearchForRecent = new JLabel("Total a group of recent transactions by adding their ID's to the search");
@@ -274,6 +274,10 @@ private void discoverHistoryService(String service_type) {
 		JLabel lblId = new JLabel("ID:");
 		lblId.setBounds(32, 101, 24, 14);
 		frame.getContentPane().add(lblId);
+		
+		JLabel lblTransactionHistory = new JLabel("Transaction History");
+		lblTransactionHistory.setBounds(294, 11, 158, 14);
+		frame.getContentPane().add(lblTransactionHistory);
 
 	}
 }
